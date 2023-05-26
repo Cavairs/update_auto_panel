@@ -6,9 +6,10 @@ from datetime import datetime
 import threading
    
 net_prefix = '192.168.'   
-net_list = [ f'{net_prefix}{i}.0/24' for i in range(224, 229) ]  
+net_list = [ f'{net_prefix}{i}.0/24' for i in range(224, 233) ]  
    
 devices = []  
+lock = threading.RLock()  # объект блокировки
    
 def scan_Ip(addr):   
     comm = f'ping -n 5 {addr}'   
@@ -25,16 +26,18 @@ def scan_Ip(addr):
                 info.pop(k, None)  
             if info['device_model'] == 'aa-07' or info['device_model'] =='aa07fbv' or info['device_model'] =='aa07bd':  # если устройство модели АА07  
                 print(addr, ' --> Ping OK')  
-                print(info)  
-                devices.append(info)  
+                print(info) 
+                with lock:
+                    devices.append(info)  # получение блокировки и изменение общего ресурса
   
                 with open('devices.json', 'w', encoding='utf-8') as f:  
-                     result = {  
-                     'count': len(devices),  
-                     'devices': devices  
+                     with lock:
+                         result = {  
+                             'count': len(devices),  
+                             'devices': devices  
                                        }  
-                     json.dump(result, f, ensure_ascii=False, indent=4)  
-                     f.write('\n',)  
+                         json.dump(result, f, ensure_ascii=False, indent=4)  
+                         f.write('\n',)  
             else:  
                 print(addr, ' --> Not found')           
     except:  
