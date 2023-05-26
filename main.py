@@ -7,10 +7,11 @@ import requests
 import ipaddress
 import json
  
-net_prefix1 = '192.168.0.'
-net_prefix2 = '192.168.1.'
-net_prefix3 = '192.168.2.'
-net_prefix4 = '192.168.3.'
+net_prefix1 = '192.168.224.'
+net_prefix2 = '192.168.225.'
+net_prefix3 = '192.168.226.'
+net_prefix4 = '192.168.227.'
+net_prefix5 = '192.168.227.'
 
 
 devices = []
@@ -47,6 +48,8 @@ def scan_Ip(ip):
                                        }
                      json.dump(result, f, ensure_ascii=False, indent=4)
                      f.write('\n',)
+            else:
+                print('Devise not found')         
     except:
         pass
  
@@ -68,13 +71,20 @@ else:
  
 t1 = datetime.now() 
 print('Scanning in progress...') 
- 
+
+gg = 224
+gg2 = 238
+
 for ip in ip_pool: 
+    if gg == gg2: 
+        break
     if ip == int(net_split[3]): 
        continue # исключаем IP адреса Бас системы из сканирования
+
     potoc = threading.Thread(target=scan_Ip, args=(ip,)) 
     # time.sleep(3)
-    potoc.start() 
+    potoc.start()
+    gg += 1 
  
 potoc.join() 
 t2 = datetime.now() 
