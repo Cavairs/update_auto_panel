@@ -24,7 +24,7 @@ def scan_Ip(addr):
             key_remover = ('device_serial_number', 'commit', 'hybrid_enable' , 'device_type', 'frontend_version', 'commit_hash')  
             for k in key_remover:  
                 info.pop(k, None)  
-            if info['device_model'] == 'aa-07' or info['device_model'] =='aa07fbv' or info['device_model'] =='aa07bd':  # если устройство модели АА07  
+            if info['device_model'] == 'aa-07' or info['device_model'] =='aa07fbv' or info['device_model'] =='aa07bd' or ['device_name'] =='AA-07MF' or ['device_name'] =='AA-07FB2M':  # если устройство модели АА07  
                 print(addr, ' --> Ping OK')  
                 print(info) 
                 with lock:
@@ -38,8 +38,8 @@ def scan_Ip(addr):
                                        }  
                          json.dump(result, f, ensure_ascii=False, indent=4)  
                          f.write('\n',)  
-            else:  
-                print(addr, ' --> Not found')           
+            # else:  
+            #     print(addr, ' --> Not found')           
     except:  
         pass  
    
