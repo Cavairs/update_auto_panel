@@ -1,5 +1,5 @@
 {
-    "count": 12,
+    "count": 13,
     "devices": [
         {
             "device_model": "aa07fbv",
@@ -7,23 +7,7 @@
             "device_name": "AA-07FBV",
             "firmware_version": "3.20.1",
             "api_version": "2.8.0",
-            "ip_adress": "192.168.224.6"
-        },
-        {
-            "device_model": "aa07fbv",
-            "framework_version": "1.9.0 20220722",
-            "device_name": "AA-07FBV",
-            "firmware_version": "3.20.1",
-            "api_version": "2.8.0",
-            "ip_adress": "192.168.224.5"
-        },
-        {
-            "device_model": "aa07fbv",
-            "framework_version": "1.9.0 20220722",
-            "device_name": "AA-07FBV",
-            "firmware_version": "3.20.1",
-            "api_version": "2.8.0",
-            "ip_adress": "192.168.224.14"
+            "ip_adress": "192.168.224.2"
         },
         {
             "device_model": "aa07fbv",
@@ -39,7 +23,15 @@
             "device_name": "AA-07FBV",
             "firmware_version": "3.20.1",
             "api_version": "2.8.0",
-            "ip_adress": "192.168.224.9"
+            "ip_adress": "192.168.224.5"
+        },
+        {
+            "device_model": "aa07fbv",
+            "framework_version": "1.9.0 20220722",
+            "device_name": "AA-07FBV",
+            "firmware_version": "3.20.1",
+            "api_version": "2.8.0",
+            "ip_adress": "192.168.224.6"
         },
         {
             "device_model": "aa07fbv",
@@ -55,23 +47,7 @@
             "device_name": "AA-07FBV",
             "firmware_version": "3.20.1",
             "api_version": "2.8.0",
-            "ip_adress": "192.168.224.11"
-        },
-        {
-            "device_model": "aa07fbv",
-            "framework_version": "1.9.0 20220722",
-            "device_name": "AA-07FBV",
-            "firmware_version": "3.20.1",
-            "api_version": "2.8.0",
-            "ip_adress": "192.168.224.2"
-        },
-        {
-            "device_model": "aa07fbv",
-            "framework_version": "1.9.0 20220722",
-            "device_name": "AA-07FBV",
-            "firmware_version": "3.20.1",
-            "api_version": "2.8.0",
-            "ip_adress": "192.168.224.13"
+            "ip_adress": "192.168.224.9"
         },
         {
             "device_model": "aa07fbv",
@@ -87,7 +63,7 @@
             "device_name": "AA-07FBV",
             "firmware_version": "3.20.1",
             "api_version": "2.8.0",
-            "ip_adress": "192.168.224.12"
+            "ip_adress": "192.168.224.13"
         },
         {
             "device_model": "aa07fbv",
@@ -95,7 +71,39 @@
             "device_name": "AA-07FBV",
             "firmware_version": "3.20.1",
             "api_version": "2.8.0",
-            "ip_adress": "192.168.224.7"
+            "ip_adress": "192.168.224.14"
+        },
+        {
+            "device_model": "aa07fbv",
+            "framework_version": "1.9.0 20220722",
+            "device_name": "AA-07FBV",
+            "firmware_version": "3.20.1",
+            "api_version": "2.8.0",
+            "ip_adress": "192.168.224.15"
+        },
+        {
+            "framework_version": "1.6.0 20220402",
+            "api_version": "1.0.7",
+            "device_name": "AA-07BD",
+            "device_model": "aa07bd",
+            "firmware_version": "3.7.0",
+            "ip_adress": "192.168.224.17"
+        },
+        {
+            "device_model": "aa07fbv",
+            "framework_version": "1.9.0 20220722",
+            "device_name": "AA-07FBV",
+            "firmware_version": "3.20.1",
+            "api_version": "2.8.0",
+            "ip_adress": "192.168.224.97"
+        },
+        {
+            "framework_version": "1.6.0 20220402",
+            "api_version": "1.0.4",
+            "device_name": "AA-07BD",
+            "device_model": "aa07bd",
+            "firmware_version": "3.4.0",
+            "ip_adress": "192.168.224.98"
         }
     ]
 }
