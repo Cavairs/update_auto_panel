@@ -1,6 +1,6 @@
 import requests
 
-url = "http://192.168.227.9/access/general/unlock/input/code"
+url = "http://192.168.88.150/api/info"
 
 payload = {}
 headers = {

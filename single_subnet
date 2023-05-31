@@ -4,13 +4,7 @@ import threading
 import socket 
 from datetime import datetime 
 import requests 
-import ipaddress
 import json
- 
-net_prefix1 = '192.168.0.'
-net_prefix2 = '192.168.1.'
-net_prefix3 = '192.168.2.'
-net_prefix4 = '192.168.3.'
 
 
 devices = []
@@ -35,12 +29,12 @@ def scan_Ip(ip):
             key_remover = ('device_serial_number', 'commit', 'hybrid_enable' , 'device_type', 'frontend_version', 'commit_hash')
             for k in key_remover:
                 info.pop(k, None)
-            if info['device_model'] == 'aa-07' or info['device_model'] =='aa07fbv' or info['device_model'] =='aa07bd':  # если устройство модели АА07
+            if info['device_model'] == 'aa-07' or info['device_model'] =='aa07fbv' or info['device_model'] =='aa07bd' or ['device_name'] =='AA-07MF' or ['device_name'] =='AA-07FB2M' or info['device_model'] =='aa07mf':  # если устройство модели АА07  
                 print(addr, '--> Ping OK')
                 print(info)
                 devices.append(info)
 
-                with open('devices.json', 'w', encoding='utf-8') as f:
+                with open('devices_single_subnet.json', 'w', encoding='utf-8') as f:
                      result = {
                      'count': len(devices),
                      'devices': devices
