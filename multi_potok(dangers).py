@@ -7,7 +7,7 @@ import threading
 
 
 net_prefix = '192.168.'
-net_list = [f'{net_prefix}{i}.0/24' for i in range(224, 225)]
+net_list = [f'{net_prefix}{i}.0/24' for i in range(224, 233)]
 
 devices = []
 lock = threading.RLock()  # объект блокировки
@@ -21,10 +21,12 @@ def scan_Ip(addr):
     headers = {
         'Accept': 'application/json'
     }
+
     try:
         r = requests.request("GET", url, headers=headers,
-                             data=payload, timeout=2)
-        if 'TTL' in response_cmd:
+                             data=payload, timeout=5)
+
+        if 'TTL' in response_cmd and r.status_code == 200:
             info = r.json()
             info['ip_adress'] = addr
             key_remover = ('device_serial_number', 'commit', 'hybrid_enable',
@@ -36,7 +38,7 @@ def scan_Ip(addr):
                 print(addr, ' --> Ping OK')
                 print(info)
                 with lock:
-                    # получение блокировки и изменение общего ресурса
+                    # получение блокировки и изменение общего ресурса devices
                     devices.append(info)
 
                 with open('devices.json', 'w', encoding='utf-8') as f:
@@ -47,10 +49,19 @@ def scan_Ip(addr):
                         }
                         json.dump(result, f, ensure_ascii=False, indent=4)
                         f.write('\n',)
-            else:
-                pass
-    except:
-        pass
+        else:
+            print(addr, ' --> Ping FAILED')
+    except requests.exceptions.Timeout:
+        print(f"Timeout при обращении к {url}")
+    except requests.exceptions.ConnectionError:
+        print(
+            f"Ошибка соединения при обращении к {url}")
+    except json.JSONDecodeError as e:
+        print(
+            f"Ошибка декодирования JSON при обращении к {url}")
+        print(f"Response text: {r.text}")
+    except Exception as e:
+        print(f"Неизвестная ошибка: {e}")
 
 
 t1 = datetime.now()
